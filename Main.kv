@@ -1,0 +1,113 @@
+MDScreen:
+
+    MDFloatLayout:
+        size: root.width, root.height
+
+         
+        
+        MDCard:
+            size_hint: 0.95, 0.95
+            background_color: "White"
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            id: card
+    
+            MDBoxLayout:
+                orientation: "vertical"
+                size: card.width, card.height                  
+
+                MDBoxLayout:
+                    orientation:"horizontal"
+                    size_hint: 1, .1
+
+                    MDGridLayout:
+                        cols:1
+                        rows:6
+                        row_default_height: 30
+                        row_force_default: True
+                        spacing: 30
+                        size_hint: 0.5, .9
+                        padding: [12, 55, 12, 12]
+
+                        MDTextField:
+                            mode:"round"
+                            hint_text: "Total Account Size"
+                            id: account_size
+
+                        MDTextField:
+                            mode:"round"
+                            hint_text: "Entry Price"
+                            id: entry_price
+
+                        MDTextField:
+                            mode:"round"
+                            hint_text: "Multiplier"   
+                            id: multiplier 
+
+                        MDLabel:
+                            text: "Position Size: "
+                            id: position_size_label
+                            color:
+
+                        MDLabel:
+                            text:"Risk To Reward:"
+                            id: r_to_r_label
+
+                        MDRectangleFlatIconButton:
+                            text:"Calculate Long Position"
+                            icon: "arrow-up-bold"
+                            text_color: "white"
+                            line_color: "green"
+                            theme_icon_color: "Custom"
+                            icon_color: "green"
+                            size_hint: self.parent.width * .5, self.parent.height *.1
+                            on_release: app.long_trade()
+                            
+
+                    MDGridLayout:
+                        cols:1
+                        rows:6
+                        row_default_height: 30
+                        row_force_default: True
+                        spacing: 30
+                        size_hint: 0.5, .9
+                        padding: [12, 55, 12, 12] 
+
+                        MDTextField:
+                            mode:"round"
+                            hint_text: "Risk Percentage Per Trade"
+                            id: risk_percentage
+
+                        MDTextField:
+                            mode:"round"
+                            hint_text: "Stoploss Price"
+                            id: stoploss
+
+                        MDTextField:
+                            mode:"round"
+                            hint_text: "Take Profit Price"
+                            id: takeprofit
+
+                        MDLabel:
+                            text: "Dollar Amount: "
+                            id: dollar_amount_label
+                            
+                        MDRoundFlatButton:
+                            text:"Clear All Fields"
+                            text_color: "white"
+                            md_bg_color: "red"
+                            size_hint: self.parent.width * .5, self.parent.height *.1
+                            on_release: app.clear_all()
+
+                        
+                        MDRectangleFlatIconButton:
+                            text: "Calculate Short Position"
+                            icon: "arrow-down-bold"
+                            text_color: "white"
+                            line_color: "red"
+                            theme_icon_color: "Custom"
+                            icon_color: "red"
+                            size_hint: self.parent.width * .5, self.parent.height *.1
+                            on_release: app.short_trade()
+
+
+                
